@@ -1,0 +1,6 @@
+2023-07-21 14:07:10,384 URL: https://www.gretel.ai
+User Prompt: clickthrough
+Test Mode: True
+Log file: logs/logfile_https:$$www.gretel.ai_clickthrough_7f568436-0ba5-481d-8d70-118914ffd041.log
+2023-07-21 14:07:10,384 Prod mode enabled. Using gpt-4 and gpt-3.5-turbo
+2023-07-21 14:07:11,585 Getting basic information...

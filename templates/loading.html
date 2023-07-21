@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loading...</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      #logs {
+        max-width: 700px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #3a5fcd;
+        margin-bottom: 20px;
+      }
+      #loader {
+        margin: 30px auto;
+        width: 80px;
+        height: 80px;
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3a5fcd;
+        border-radius: 50%;
+        animation: spin 2s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <script>
+      function refreshLogs() {
+        // Fetch the latest logs from the server
+        fetch('/logs')
+          .then(response => response.text())
+          .then(data => {
+            // Parse the text data into an array of lines
+            let lines = data.split('\n').filter(line => line.trim() !== '');
+      
+            // Get the last line from the array, or a default message if all lines are empty
+            let lastLine = lines.length > 0 ? lines[lines.length - 1] : 'Loading...';
+
+            // Update the logs on the webpage with only the last line
+            document.getElementById('logs').textContent = lastLine;
+
+            // Refresh the logs every second
+            setTimeout(refreshLogs, 1000);
+          });
+      }
+
+      // Start refreshing the logs
+      refreshLogs();
+    </script>
+  </head>
+  <body>
+    <h1>Creating an experiment 🧪</h1>
+    <div id="loader"></div>
+    <pre id="logs">Loading...</pre>
+  </body>
+</html>

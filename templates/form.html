@@ -6,28 +6,100 @@
       type="text/css"
       href="{{ url_for('static', filename='./main.css') }}"
     />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        max-width: 600px;
+        padding: 20px;
+        margin: auto;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #3a5fcd;
+      }
+      .description {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+      }
+      .form-field {
+        margin-bottom: 20px;
+      }
+      .submit-button {
+        background-color: #3a5fcd;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .submit-button:hover {
+        background-color: #314cb5;
+      }
+      #customProblem {
+        display: none;
+      }
+    </style>
+    <script>
+      function showCustomProblem() {
+        var selectElement = document.getElementById('problem');
+        var inputElement = document.getElementById('customProblem');
+        if (selectElement.value === 'custom') {
+          inputElement.style.display = 'block';
+        } else {
+          inputElement.style.display = 'none';
+        }
+      }
+    </script>
   </head>
   <body>
-    <h1>CogniWave's Marketing Experiment Generator</h1>
+    <div class="container">
+      <h1>Welcome to CogniWave's Marketing Experiment Generator</h1>
+      <p class="description">
+        Our tool is designed to help you improve different parts of your conversion funnel. Use it to figure out, for instance, why visitors to your home page aren't submitting contact forms.
+      </p>
 
-    <form action="/" method="post">
-      <label for="url">Your URL:</label><br />
-      <input
-        type="text"
-        id="url"
-        name="url"
-        placeholder="Enter your company's URL here"
-      /><br />
-      <label for="problem">Problem:</label><br />
-      <input
-        type="text"
-        id="problem"
-        name="problem"
-        placeholder="Enter the problem your team is currently facing"
-      /><br /><br />
-      <label for="testmode">Enable Test Mode:</label><br />
-      <input type="checkbox" id="testmode" name="testmode" /><br /><br />
-      <input type="submit" value="Submit" />
-    </form>
+      <form action="/" method="post">
+        <div class="form-field">
+          <label for="url">Your URL:</label><br />
+          <input
+            type="text"
+            id="url"
+            name="url"
+            placeholder="https://"
+          />
+        </div>
+        <div class="form-field">
+          <label for="problem">Problem:</label><br />
+          <select id="problem" name="problem" onchange="showCustomProblem()">
+            <option value="clickthrough">The clickthrough rates on my ads is too low</option>
+            <option value="contact">People that go to my landing page don't contact me / buy from me</option>
+            <option value="bounce">The bounce rate on my landing page is super high</option>
+            <option value="custom">Enter a custom problem</option>
+          </select>
+          <input
+            type="text"
+            id="customProblem"
+            name="customProblem"
+            placeholder="Enter the problem your team is currently facing"
+          />
+        </div>
+        <div class="form-field">
+          <label for="testmode">
+            <input type="checkbox" id="testmode" name="testmode" />
+            Prioritize speed over quality (for testing)
+          </label>
+        </div>
+        <div class="form-field">
+          <input type="submit" value="Submit" class="submit-button" />
+        </div>
+      </form>
+    </div>
   </body>
 </html>
