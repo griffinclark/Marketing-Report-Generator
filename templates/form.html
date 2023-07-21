@@ -46,17 +46,21 @@
         display: none;
       }
     </style>
-    <script>
-      function showCustomProblem() {
-        var selectElement = document.getElementById('problem');
-        var inputElement = document.getElementById('customProblem');
-        if (selectElement.value === 'custom') {
-          inputElement.style.display = 'block';
-        } else {
-          inputElement.style.display = 'none';
-        }
-      }
-    </script>
+<script>
+  function showCustomProblem() {
+    var selectElement = document.getElementById('problem');
+    var inputElement = document.getElementById('customProblem');
+    if (selectElement.value === 'Enter a custom problem') {
+      inputElement.style.display = 'block';
+    } else {
+      inputElement.style.display = 'none';
+    }
+  }
+
+  // Call showCustomProblem when the page loads
+  window.onload = showCustomProblem;
+</script>
+
   </head>
   <body>
     <div class="container">
@@ -78,10 +82,10 @@
         <div class="form-field">
           <label for="problem">Problem:</label><br />
           <select id="problem" name="problem" onchange="showCustomProblem()">
-            <option value="clickthrough">The clickthrough rates on my ads is too low</option>
-            <option value="contact">People that go to my landing page don't contact me / buy from me</option>
-            <option value="bounce">The bounce rate on my landing page is super high</option>
-            <option value="custom">Enter a custom problem</option>
+            <option value="The clickthrough rates on my ads is too low">The clickthrough rates on my ads is too low</option>
+            <option value="People that go to my landing page don't contact me / buy from me">People that go to my landing page don't contact me / buy from me</option>
+            <option value="The bounce rate on my landing page is super high">The bounce rate on my landing page is super high</option>
+            <option value="Enter a custom problem">Enter a custom problem</option>
           </select>
           <input
             type="text"
@@ -89,12 +93,6 @@
             name="customProblem"
             placeholder="Enter the problem your team is currently facing"
           />
-        </div>
-        <div class="form-field">
-          <label for="testmode">
-            <input type="checkbox" id="testmode" name="testmode" />
-            Prioritize speed over quality (for testing)
-          </label>
         </div>
         <div class="form-field">
           <input type="submit" value="Submit" class="submit-button" />

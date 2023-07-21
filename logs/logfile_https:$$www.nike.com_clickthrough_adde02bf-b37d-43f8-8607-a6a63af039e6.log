@@ -1,7 +1,0 @@
-2023-07-21 14:06:07,757 URL: https://www.nike.com
-User Prompt: clickthrough
-Test Mode: True
-Log file: logs/logfile_https:$$www.nike.com_clickthrough_adde02bf-b37d-43f8-8607-a6a63af039e6.log
-2023-07-21 14:06:07,757 Prod mode enabled. Using gpt-4 and gpt-3.5-turbo
-2023-07-21 14:06:09,442 Getting basic information...
-2023-07-21 14:06:11,708 Understanding what your company does...

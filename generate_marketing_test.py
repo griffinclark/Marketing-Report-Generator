@@ -32,7 +32,7 @@ def fetch_website_text(url):
     return text
 
 
-def get_company_name(web_text):
+# def get_company_name(web_text):
     logging.info("Getting basic information...")
     res = openai.ChatCompletion.create(
         model=fast_model,
@@ -241,7 +241,7 @@ def main(url, user_prompt, test_mode):
         logging.info("Prod mode enabled. Using " + smart_model + " and " + fast_model)
         test_mode = False
     
-    report_data[company_name_key] = get_company_name(fetch_website_text(url))
+    # report_data[company_name_key] = get_company_name(fetch_website_text(url))
     report_data[company_description_key] = get_company_description(
         fetch_website_text(url))
     # in the company description, replace new lines with spaces
@@ -260,9 +260,10 @@ def main(url, user_prompt, test_mode):
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-smart_model = "gpt-4"
+smart_model = "gpt-3.5-turbo"
+print("SMART MODEL SET TO 3.5T")
 fast_model = "gpt-3.5-turbo"
-company_name_key = "Company Name"
+# company_name_key = "Company Name"
 report_date_key = "Report Date"
 algorithm_version_key = "Algorithm Version"
 report_title_key = "Report Title"
@@ -292,7 +293,7 @@ hypothesis_prompt = "Given the business we are in, the problem that we are facin
 example_expected_learning_response= "The proposed test, known as the Two-Step Form Test, aims to determine if enhancing the lead qualification process could boost the conversion rate. This involves replacing the existing single submission form with a two-part process; the first part screens for ideal customer profiles based on criteria such as industry, firm size, and AI needs, and the second part collects in-depth contact details from these qualified leads. This experiment could validate or invalidate the initial hypothesis, provide valuable insights into your audience's characteristics and website interaction patterns, and help improve your conversion funnel and marketing strategies. Do not say anything like 'based on your report'"
 
 report_data = {
-    company_name_key: "",
+    # company_name_key: "",
     report_date_key: datetime.now().strftime("%B %d, %Y"),
     algorithm_version_key: "0.0.1",
     report_title_key: "",
@@ -306,22 +307,23 @@ report_data = {
     # tech_stack_key: [],
 }
 
+
 parser = argparse.ArgumentParser()
 parser = argparse.ArgumentParser(description='Process some inputs.')
 parser.add_argument('--url', type=str, help='URL for the company')
 parser.add_argument('--user_prompt', type=str, help='User prompt')
 parser.add_argument('--test_mode', type=str, default='False', help='Enable or disable test mode')
-parser.add_argument('--log_file', type=str, default='logfile.log', help='Where the output goes')
+parser.add_argument('--log_file', type=str, default='logs/error.log', help='Where the output goes')
 
 args = parser.parse_args()
 test_mode = args.test_mode.lower() in ['true', '1']
 url = args.url
 user_prompt = args.user_prompt
-print(args.log_file + " from script") 
 logging.basicConfig(filename=args.log_file, level=logging.INFO, format='%(asctime)s %(message)s')
 logging.info("URL: " + url + "\nUser Prompt: " + user_prompt + "\nTest Mode: " + str(test_mode) + "\n" + "Log file: " + args.log_file)
+print(args.user_prompt)
 main(args.url, args.user_prompt, args.test_mode)
 
-logging.info("\n\nReport Data:\n------------------\n")
+logging.info("%Report Data:%")
 for key in report_data:
-    logging.info(key + ": " + report_data[key] + "\n")
+    logging.info(key + "%%% " + report_data[key] + "\n")

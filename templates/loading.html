@@ -21,7 +21,7 @@
         background-color: white;
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       }
       h1 {
         color: #3a5fcd;
@@ -37,25 +37,30 @@
         animation: spin 2s linear infinite;
       }
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     </style>
     <script>
       function refreshLogs() {
         // Fetch the latest logs from the server
-        fetch('/logs')
-          .then(response => response.text())
-          .then(data => {
-            // Parse the text data into an array of lines
-            let lines = data.split('\n').filter(line => line.trim() !== '');
-      
-            // Get the last line from the array, or a default message if all lines are empty
-            let lastLine = lines.length > 0 ? lines[lines.length - 1] : 'Loading...';
-
-            // Update the logs on the webpage with only the last line
-            document.getElementById('logs').textContent = lastLine;
-
+        fetch("/logs")
+          .then((response) => response.text())
+          .then((data) => {
+            // If the report data is ready, redirect to the results page
+            if (data.includes("%Report Data:%")) {
+              window.location.href = "/results"; // update '/results' with the actual path to your results page
+            } else {
+              // Split the logs into lines and take the last line only
+              const lastLine = data.trim().split('\n').pop();
+              // Remove the timestamp at the beginning of the line
+              const logWithoutTimestamp = lastLine.replace(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} /, '');
+              document.getElementById("logs").textContent = logWithoutTimestamp;
+            }
             // Refresh the logs every second
             setTimeout(refreshLogs, 1000);
           });
@@ -66,7 +71,7 @@
     </script>
   </head>
   <body>
-    <h1>Creating an experiment 🧪</h1>
+    <h1>Creating Your Experiment 🧪</h1>
     <div id="loader"></div>
     <pre id="logs">Loading...</pre>
   </body>

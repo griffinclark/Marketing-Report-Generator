@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import subprocess
 import uuid
 import os
@@ -12,12 +12,34 @@ open(default_logfile, 'w').close()
 # This list will store all the unique log file names
 logfiles = [default_logfile]
 
+@app.route('/results-data', methods=['GET'])
+def results_data():
+    # Read the most recent log file
+    with open(logfiles[-1], 'r') as f:
+        logs = f.read()
+
+    # Extract the report data
+    report_data = logs.split('%Report Data:%\n')[-1]
+
+    return report_data
+
+@app.route('/results', methods=['GET'])
+def results():
+    # Assuming results.html is in the templates directory
+    return render_template('results.html')
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         url = request.form.get('url')
         problem = request.form.get('problem')
+        customProblem = request.form.get('customProblem')
         testmode = 'testmode' in request.form
+
+        # if custom problem is selected and it's not empty then overwrite the problem
+        if problem == 'Enter a custom problem' and customProblem:
+            problem = customProblem
 
         # Log the form data to the console
         logfile = "logs/"+f"logfile_{url.replace('/', '$')}_{problem.replace(' ', '%20')}_{uuid.uuid4()}.log"
@@ -35,6 +57,22 @@ def home():
 
     else:
         return render_template('form.html')
+
+@app.route('/use-log/<string:filename>', methods=['GET'])
+def use_log(filename):
+    # Add the log file name to the list
+    logfiles.append(f"logs/{filename}")
+    
+    # Redirect to the results page
+    return redirect('/results', code=302)
+    with open(f"logs/{filename}") as f:
+        logs = f.read()
+
+    # Extract the report data
+    report_data = logs.split('%Report Data:%\n')[-1]
+
+    return report_data
+
 
 @app.route('/logs', methods=['GET'])
 def logs():
