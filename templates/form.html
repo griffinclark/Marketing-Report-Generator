@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='./main.css') }}"
+    />
+  </head>
+  <body>
+    <h1>CogniWave's Marketing Experiment Generator</h1>
+
+    <form action="/" method="post">
+      <label for="url">Your URL:</label><br />
+      <input
+        type="text"
+        id="url"
+        name="url"
+        placeholder="Enter your company's URL here"
+      /><br />
+      <label for="problem">Problem:</label><br />
+      <input
+        type="text"
+        id="problem"
+        name="problem"
+        placeholder="Enter the problem your team is currently facing"
+      /><br /><br />
+      <label for="testmode">Enable Test Mode:</label><br />
+      <input type="checkbox" id="testmode" name="testmode" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
