@@ -1,0 +1,78 @@
+2023-07-25 11:03:11,955 URL: https://lionsentry.com/
+User Prompt: I want people to give me more info in the forms that they fill out for me. How can I get them to give me better answers?
+Test Mode: False
+Log file: logs/logfile_https:$$lionsentry.com$_I%20want%20people%20to%20give%20me%20more%20info%20in%20the%20forms%20that%20they%20fill%20out%20for%20me.%20How%20can%20I%20get%20them%20to%20give%20me%20better%20answers?_6fda00e5-130b-4eaf-9088-76073ce5846f.log
+2023-07-25 11:03:11,955 Refining my theories...
+2023-07-25 11:03:11,955 (1/7) Understanding what your company does...
+2023-07-25 11:03:23,580 (2/7) Finding a KPI that makes sense...
+2023-07-25 11:03:43,541 (3/7) Thinking up a hypothesis...
+2023-07-25 11:04:34,848 (4/7) Generating ideas to test the hypothesis...
+2023-07-25 11:05:19,697 (5/7) Making sure the test fits with what we want to learn...
+2023-07-25 11:05:39,355 (6/7) Writing a guide for performing this test...
+2023-07-25 11:06:08,499 (7/7) Prepping the report...
+2023-07-25 11:06:09,563 %Report Data:%
+2023-07-25 11:06:09,564 Report Date%%% July 25, 2023
+
+2023-07-25 11:06:09,564 URL%%% https://lionsentry.com/
+
+2023-07-25 11:06:09,564 Algorithm Version%%% 0.1.3
+
+2023-07-25 11:06:09,564 Problem Description%%% I want people to give me more info in the forms that they fill out for me. How can I get them to give me better answers?
+
+2023-07-25 11:06:09,564 Report Title%%% Enhancing Form Responses at LIONSENTRY
+
+2023-07-25 11:06:09,564 Company Description%%% LIONSENTRY seems to be a company dedicated to personal development, coaching, and self-discovery. Their goal is to help individuals discover their purpose in life, understand themselves more deeply, and construct the future they envision for themselves. To achieve this, they have designed resources that guide individuals through their journey to self-discovery and empower them to make a positive impact on humanity.  One of their strategies includes creating a "Why Statement", a tool that evidently helps people articulate their core motivations or purpose. The company also provides a supportive community for shared learning and growth. They offer contact through various channels, showing their readiness to support user inquiries and provide necessary assistance in their journey to personal growth. The organizations primary office is located in Tulsa, Oklahoma.
+
+2023-07-25 11:06:09,565 KPI Used To Measure Problem%%% The KPI most appropriate for this problem is Form Completion Rate. This will directly measure how many visitors, after starting the form, actually submit it.
+
+1/ User Satisfaction: While this can provide insights into the overall experience of using your form, it doesn't directly address how to get individuals to provide more complete and valuable responses.
+   
+2/ Feedback Rating: This focuses on the users’ perception of the form-filling process and doesn't necessarily correlate to the improved quality or completeness of form answers.
+
+3/ Error Rate: Although helpful to improve the form's functionality or detect common mistakes, it doesn't necessarily help you improve response quality or users' willingness to provide more detailed answers.
+
+2023-07-25 11:06:09,565 Hypothesis%%% Given the challenge of encouraging users to provide more detailed and valuable responses in the offered forms, the hypothesis that seems most accurate is: "By providing example answers, users will have a better idea of what's expected, potentially leading to more complete and better-quality responses."
+
+The reasoning behind this hypothesis is that it directly addresses the problem at hand. Often, users may not provide detailed responses because they might not understand what kind of information is sought or how to articulate their thoughts effectively. Offering example answers serves as a reference point that guides users about the level of detail and the kind of response expected in the form. These examples can provide a clear roadmap, encouraging more thorough responses and thus enhancing the overall quality of the information collected through the forms. 
+
+Providing example answers doesn’t only improve the completion rate, but it also tends to increase the information quality offered by users—making the responses more valuable for the company. LIONSENTRY, as a self-development and coaching platform, is in a situation where the quality of responses is as important, if not more, than the completion rate itself. Higher quality responses will result in a more personalized, efficient, and effective coaching process. Therefore, implementing this hypothesis could lead to a direct improvement in the performance against the KPI of Form Completion Rate.
+
+2023-07-25 11:06:09,565 Recommended Test%%% I recommend the A/B Testing approach to validate or invalidate the stated hypothesis. This approach would involve creating two versions of the form - one with example answers and the other without. By analyzing which version generates more complete and high-quality responses, you'll be able to draw direct conclusions about the effectiveness of example answers. This method is more effective and efficient than the User Feedback Test and the Time Tracking Test. The User Feedback Test relies on subjective feedback, which may not directly correlate to the quality and completeness of the form submissions, while the Time Tracking Test can yield increased time metrics without necessarily leading to better form completions. A/B Testing, by comparison, would yield more direct, objective results related to the actual issue at hand - the quality and completeness of form submissions.
+
+2023-07-25 11:06:09,565 What We Can Expect To Learn%%% Based on your report and the outlined test, you can expect to learn the effectiveness of providing example answers in your forms. This test will specifically determine whether example answers have a positive impact on the quality, detail, and completion rate of the forms submitted by users.
+
+To execute the A/B Testing approach, two versions of the forms will be created, one with and one without example answers. By dividing your website visitors randomly and equally to engage with either version of these forms, you can track differences in form completion rates and the quality of responses between the two groups.
+
+By comparing representative sample data, the A/B Test can reveal if there is a significant difference in the level of detail and completeness in the responses between the two groups. This will directly validate or invalidate your hypothesis - "By providing example answers, users will have a better idea of what's expected, potentially leading to more complete and better-quality responses."
+
+If the results show that the form version with example answers is achieving a higher Form Completion Rate and better-quality responses, this would validate your hypothesis. On the other hand, if there's no significant difference between the two form versions, or the form without example answers performs better, the hypothesis would be invalidated. 
+
+This test also provides an insight into the user's experience while filling out the forms and helps your team better understand what methods can effectively improve user engagement with your form, hence the overall user experience on your site.
+
+2023-07-25 11:06:09,565 How To Perform Test%%% To perform the A/B test, follow these steps:
+
+1. **Define A/B groups:** Create two versions of your form, one with example answers (version A) and one without example answers (version B).
+
+2. **Randomize test subjects:** Split the visitors to your form randomly into two groups. One group will see the form version with the sample answers (A) and the other group will see the form version without the sample answers (B).
+
+3. **Run the test:** Allow users to interact with the forms. Make sure to run the test over a representative time period. This could be several days, weeks, or even months depending on how much traffic your website gets.
+
+4. **Collect Data:** Collect and record the data of the KPIs for each version of the form. In this case, the main KPI is Form Completion Rate. However, it would also be beneficial to track secondary KPIs such as time spent on form and quality of responses.
+
+5. **Analyze the data:** Analyze and compare the results. If form A (with example answers) has a significantly higher form completion rate and better responses than form B, then your hypothesis is validated.
+
+To ensure that your data is clean:
+
+1. **Remove duplicates:** Look for, and remove, any duplicate form submissions from the same users to avoid them skewing the data.
+
+2. **Check for outliers:** Any response that is dramatically different from the rest might distort the overall picture. Depending on your testing goals and parameters, you might want to exclude these from your analysis.
+
+3. **Address missing data:** If some form submissions have data that was not correctly captured or stored, it might be best to exclude those entries so that they do not impact the conclusions.
+
+4. **Verify user segmentation:** Make sure users are correctly and randomly assigned to use version A or B of the form. If some users were exposed to both versions, their data might need to be excluded.
+
+5. **Data Entry Accuracy:** Finally, ensure that all form response data has been entered correctly for accurate analysis.
+
+Remember that the objective is to make the data as reliable and representative as possible before any analysis takes place.
+
+

@@ -8,6 +8,7 @@
         background-color: #f5f5f5;
         display: flex;
         justify-content: center;
+        line-height: 1.5;
       }
       .container {
         max-width: 800px;
@@ -15,13 +16,27 @@
         margin: auto;
         background-color: white;
         border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       }
-      h1, h2 {
+      .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+      }
+      h1 {
         color: #3a5fcd;
+        font-size: 2em;
+        margin-bottom: 0.5em;
+      }
+      h2 {
+        color: #3a5fcd;
+        font-size: 1.5em;
+        margin: 0.83em 0;
       }
       p {
         margin: 10px 0;
+        font-size: 1em;
+        color: #333;
       }
     </style>
   </head>
@@ -32,33 +47,50 @@
     </div>
     <script>
       // Fetch the report data from the server
-      fetch('/results-data')
-        .then(response => response.text())
-        .then(data => {
-          let title = 'Report Data'; // Default title
+      fetch("/results-data")
+        .then((response) => response.text())
+        .then((data) => {
+          let title = "Report Data"; // Default title
           // Remove the timestamp at the beginning of each line
-          const lines = data.split('\n').map(line => {
-            const cleanLine = line.replace(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} /, '');
-            if (cleanLine.startsWith('Report Title%%%')) {
-              title = cleanLine.split('%%%')[1];
-              return null; // Remove title from lines
-            }
-            return cleanLine;
-          }).filter(Boolean); // Remove null entries
+          const lines = data
+            .split("\n")
+            .map((line) => {
+              const cleanLine = line.replace(
+                /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} /,
+                ""
+              );
+              if (cleanLine.startsWith("Report Title%%%")) {
+                title = cleanLine.split("%%%")[1];
+                return null; // Remove title from lines
+              }
+              return cleanLine;
+            })
+            .filter(Boolean); // Remove null entries
 
           // Create HTML from the lines
-          const html = lines.map(line => {
-            if (line.includes("%%%")) {
-              const [h2, p] = line.split("%%%");
-              return `<h2>${h2}</h2><p>${p}</p>`;
-            } else {
-              return `<p>${line}</p>`;
-            }
-          }).join("");
+          const html = lines
+            .map((line) => {
+              if (line.includes("%%%")) {
+                const [h2, p] = line.split("%%%");
+                return `<h2>${h2.replace(
+                  /\*\*(.*?)\*\*/g,
+                  "<strong>$1</strong>"
+                )}</h2><p>${p.replace(
+                  /\*\*(.*?)\*\*/g,
+                  "<strong>$1</strong>"
+                )}</p>`;
+              } else {
+                return `<p>${line.replace(
+                  /\*\*(.*?)\*\*/g,
+                  "<strong>$1</strong>"
+                )}</p>`;
+              }
+            })
+            .join("");
 
           // Update the results on the webpage
-          document.getElementById('report-title').textContent = title;
-          document.getElementById('results').innerHTML = html;
+          document.getElementById("report-title").textContent = title;
+          document.getElementById("results").innerHTML = html;
         });
     </script>
   </body>
